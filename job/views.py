@@ -35,7 +35,10 @@ def user_login(request):
 def recruiter_login(request):
     return render(request,'recruiter_login.html')
 
-def user_home(request):
+def recruiter_signup(request):
+    return render(request,'recruiter_signup.html')
+
+def user_home(request): 
     if not request.user.is_authenticated:
         return redirect('user_login')
     return render(request,'user_home.html')
