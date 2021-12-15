@@ -2,7 +2,7 @@ from os import error
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from .models import *
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
 def index(request):
@@ -39,6 +39,10 @@ def user_home(request):
     if not request.user.is_authenticated:
         return redirect('user_login')
     return render(request,'user_home.html')
+
+def Logout(request):
+    logout(request)
+    return redirect('index')
 
 def user_signup(request):
     error=""
