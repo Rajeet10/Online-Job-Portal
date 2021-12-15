@@ -1,0 +1,19 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'navigation.html' %}
+<marquee behavior="" direction="" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size:25px;color:rgb(233, 22, 22);background-color:black;font-weight:bold;margin-top:1%">
+    User Login
+</marquee>
+<hr>
+<form class="container mt-5" method="post">
+    {% csrf_token %}
+    <label for=""><b>Email Id</b></label>
+    <input type="text" class="form-control" name="uname" placeholder="Enter Email Id">
+    <label for=""><b>Password</b></label>
+    <input type="password" class="form-control" name="pwd" placeholder="Enter Password">
+    <input type="submit" value="Submit" class="btn btn-primary" style="margin-top:2%;height:40px;background:black;color:darkcyan;">
+</form>
+{% include 'footer.html' %}
+{% endblock %}
