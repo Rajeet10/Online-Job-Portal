@@ -4,3 +4,4 @@ from job.models import *
 
 
 admin.site.register(StudentUser)
+admin.site.register(Recruiter)
