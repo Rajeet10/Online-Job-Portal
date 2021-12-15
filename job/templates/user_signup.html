@@ -74,4 +74,16 @@
     <input type="submit" value="Signup" class="btn btn-primary my-3" style="width: 200px;">
 </form>
 {% include 'footer.html' %}
+{% ifequal error "no"   %}
+<script>
+    alert("Signup Successsful");
+    window.location=('{% url 'user_login' %}')
+
+</script>
+{% endifequal %}
+{% ifequal error "yes"   %}
+<script>
+    alert("Something went wrong,Try again....");
+</script>
+{% endifequal %}
 {% endblock %}
