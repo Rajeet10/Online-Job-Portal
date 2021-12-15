@@ -51,7 +51,7 @@ def recruiter_login(request):
         else:
             error="yes"      
     d={'error':error}          
-    return render(request,'recruiter_login.html')
+    return render(request,'recruiter_login.html',d)
 
 def recruiter_signup(request):
     error=""
@@ -77,6 +77,11 @@ def user_home(request):
     if not request.user.is_authenticated:
         return redirect('user_login')
     return render(request,'user_home.html')
+
+def recruiter_home(request): 
+    if not request.user.is_authenticated:
+        return redirect('recruiter_login')
+    return render(request,'recruiter_home.html')
 
 def Logout(request):
     logout(request)

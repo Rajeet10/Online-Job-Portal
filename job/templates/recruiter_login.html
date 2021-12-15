@@ -16,5 +16,21 @@
     <input type="submit" value="Submit" class="btn btn-primary" style="margin-top:2%;height:40px;background:black;color:darkcyan;">
     <a href="{% url 'recruiter_signup' %}" class="btn btn-primary"  style="margin-top:2%;height:40px;background:black;color:darkcyan;">CREATE AN ACCOUNT</a>
 </form>
+{% ifequal error "no"   %}
+<script>
+    alert("Signup Successsful");
+    window.location=('{% url 'recruiter_home' %}')
 
+</script>
+{% endifequal %}
+{% ifequal error "yes"   %}
+<script>
+    alert("Something went wrong,Try again....");
+</script>
+{% endifequal %}
+{% ifequal error "not"   %}
+<script>
+    alert("Your login status is pending");
+</script>
+{% endifequal %}
 {% endblock %}
