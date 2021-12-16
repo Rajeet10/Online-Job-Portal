@@ -109,6 +109,13 @@ def view_users(request):
     d={'data':data}
     return render(request,'view_users.html',d)
 
+def delete_user(request,pid): 
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    student=StudentUser.objects.get(id=pid)
+    student.delete()
+    return redirect('view_users')
+
 def Logout(request):
     logout(request)
     return redirect('index')
