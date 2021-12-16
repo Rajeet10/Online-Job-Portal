@@ -116,6 +116,13 @@ def delete_user(request,pid):
     student.delete()
     return redirect('view_users')
 
+def recruiter_pending(request): 
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    data=Recruiter.objects.filter(status='pending')
+    d={'data':data}
+    return render(request,'recruiter_pending.html',d)
+
 def Logout(request):
     logout(request)
     return redirect('index')
