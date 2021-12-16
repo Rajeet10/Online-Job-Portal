@@ -9,7 +9,21 @@ def index(request):
     return render(request,'index.html')
 
 def admin_login(request):
-    return render(request,'admin_login.html')
+    error=""
+    if request.method=="POST":
+        u=request.POST['uname']
+        p=request.POST['pwd']
+        user=authenticate(username=u,password=p)
+        try:
+            if user.is_staff:
+                login(request,user)
+                error="no"
+            else:
+                error="yes"
+        except:
+            error="yes"
+    d={"error":error}
+    return render(request,'admin_login.html',d)
 
 def user_login(request):
     error=""
@@ -82,6 +96,11 @@ def recruiter_home(request):
     if not request.user.is_authenticated:
         return redirect('recruiter_login')
     return render(request,'recruiter_home.html')
+
+def admin_home(request): 
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    return render(request,'admin_home.html')
 
 def Logout(request):
     logout(request)

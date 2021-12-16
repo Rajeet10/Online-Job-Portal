@@ -18,14 +18,14 @@
 </form>
 {% ifequal error "no"   %}
 <script>
-    alert("Signup Successsful");
+    alert("Login Successsful");
     window.location=('{% url 'recruiter_home' %}')
 
 </script>
 {% endifequal %}
 {% ifequal error "yes"   %}
 <script>
-    alert("Something went wrong,Try again....");
+    alert("Invalid credentials,Try again!");
 </script>
 {% endifequal %}
 {% ifequal error "not"   %}

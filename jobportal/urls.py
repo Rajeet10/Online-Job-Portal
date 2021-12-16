@@ -20,7 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('adminpanel/', admin.site.urls),
     path('',index,name="index"),
     path('admin_login',admin_login,name="admin_login"),
      path('user_login',user_login,name="user_login"),
@@ -29,6 +29,7 @@ urlpatterns = [
     path('user_home',user_home,name="user_home"),
     path('Logout',Logout,name="Logout"),
     path('recruiter_signup',recruiter_signup,name="recruiter_signup"),
+    path('admin_home',admin_home,name="admin_home"),
 
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

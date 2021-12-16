@@ -15,5 +15,16 @@
     <input type="password" class="form-control" name="pwd" placeholder="Enter Password">
     <input type="submit" value="Submit" class="btn btn-primary" style="margin-top:2%;height:40px;background:black;color:darkcyan;">
 </form>
+{% ifequal error "no"   %}
+<script>
+    alert("Login Successsful");
+    window.location=('{% url 'admin_home' %}')
 
+</script>
+{% endifequal %}
+{% ifequal error "yes"   %}
+<script>
+    alert("Invalid credentails,Try again!");
+</script>
+{% endifequal %}
 {% endblock %}
