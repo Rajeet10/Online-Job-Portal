@@ -79,12 +79,16 @@
                 <li class="nav-item">
                     <a href="{% url 'admin_home' %}" style="margin-left: 280px;" class="nav-link"><i class="fa fa-home mr-1"></i>Home</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fa fa-users mr-1"></i>New RecruiterRequest</a>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users mr-1"></i>Recruiters</a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Pending</a>
+                        <a href="#" class="dropdown-item">Accepted</a>
+                        <a href="#" class="dropdown-item">Rejected</a>
+                        <a href="#" class="dropdown-item">All Recruiters</a>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fa fa-user-o mr-1"></i>View Recruiters</a>
-                </li>
+
                 <li class="nav-item">
                     <a href="{% url 'view_users' %}" class="nav-link"><i class="fa fa-user-o mr-1"></i>View Users</a>
                 </li>
