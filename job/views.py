@@ -102,6 +102,13 @@ def admin_home(request):
         return redirect('admin_login')
     return render(request,'admin_home.html')
 
+def view_users(request): 
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    data=StudentUser.objects.all()
+    d={'data':data}
+    return render(request,'view_users.html',d)
+
 def Logout(request):
     logout(request)
     return redirect('index')
